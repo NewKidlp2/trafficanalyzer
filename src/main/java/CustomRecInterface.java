@@ -62,7 +62,11 @@ public class CustomRecInterface {
         Scanner input = new Scanner(System.in);
 
         try {
-                    deviceId = Integer.parseInt(input.nextLine()) - 1;
+            deviceId = Integer.parseInt(input.nextLine()) - 1;
+            if ((deviceId > alldevs.size() - 1) || (deviceId < 0)) {
+                System.out.println("Device doesn't exist. Using default device: 1");
+                deviceId = 1;
+            }
 
         } catch (NumberFormatException e) {
             System.out.println("device not found. default device: 1");

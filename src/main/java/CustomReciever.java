@@ -150,7 +150,7 @@ public class CustomReciever extends Receiver<Integer> {
     }
 
     void getMinMax() {
-        System.out.println("Update min and max value");
+        System.out.println("INFO: Update min and max value");
         Repository repository = new Repository();
 
         try {
