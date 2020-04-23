@@ -1,0 +1,39 @@
+buildscript {
+
+    dependencies {
+        classpath 'org.postgresql:postgresql:42.2.0'
+    }
+}
+
+
+plugins {
+    id 'java'
+    id "org.flywaydb.flyway" version "6.3.3"
+    id 'application'
+}
+
+mainClassName = 'CustomRecInterface'
+group 'SparkStream'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    compile group: 'org.postgresql', name: 'postgresql', version: '42.2.5'
+    compile group: 'org.apache.spark', name: 'spark-streaming_2.12', version: '2.4.5'
+    compile files('lib/jnetpcap.jar')
+    compile group: 'org.apache.kafka', name: 'kafka-clients', version: '2.5.0'
+}
+flyway {
+    url = 'jdbc:postgresql://localhost:5432/limits'
+    user = 'postgres'
+    password = '1238799'
+}
+ run {
+     standardInput = System.in
+ }
